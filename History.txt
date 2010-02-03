@@ -2,6 +2,10 @@
 
   * Added application_port_for_selenium to webrat configuration. The use case is when you want to test through a web server sitting in front of your application server. (Luke Melia)
 
+* Bug fixes
+
+  * Only follow 3XX responses which do includes a Location header (Simon Rozet)
+
 == 0.7.0 / 2010-01-17
 
 * Major enhancements
