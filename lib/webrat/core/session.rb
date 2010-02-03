@@ -155,7 +155,7 @@ For example:
     end
 
     def redirect? #:nodoc:
-      (response_code / 100).to_i == 3
+      [301, 302, 303, 307].include?(response_code)
     end
 
     def internal_redirect?

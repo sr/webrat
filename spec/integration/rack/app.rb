@@ -24,6 +24,7 @@ class RackApp < Sinatra::Base
   end
 
   get "/foo" do
+    last_modified(Time.mktime(2010, 02, 03))
     "spam"
   end
 

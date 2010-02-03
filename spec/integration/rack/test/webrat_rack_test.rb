@@ -57,6 +57,12 @@ class WebratRackTest < Test::Unit::TestCase
     assert_equal "webrat_rack_test.rb", upload[:filename]
     assert upload[:tempfile].respond_to?(:read)
   end
+
+  def test_does_not_follow_304
+    header "HTTP_IF_MODIFIED_SINCE", Time.mktime(2010, 02, 03).httpdate
+    visit "/foo"
+    assert_equal 304, last_response.status
+  end
 end
 
 class WebratRackSetupTest < Test::Unit::TestCase
